@@ -1,116 +1,44 @@
 
-let articles = {
-  nodes: [...document.querySelectorAll('article')],
-  clientY: 0,
-  clientX: 0,
-  rotate: 0,
-  flipped: false,
-  activeCard: 0,
-  switchCard(int){
-    if(this.clientY < -30){
-      this.nodes.forEach((c, i) => {
-        if(c.className === 'card currentCard'){
-          c.className = 'card flipback'
-          c.style.setProperty('--posY', this.clientY)
-          c.style.setProperty('--rotX', this.rotate)
-        } else if(c.className === 'card'){
-          c.className = 'card currentCard'
-        } else if(c.className === 'contactCard'){
-          c.className = 'card'
-        }
-      })
-    }
-  },
-  flipCard(){
-    /*
-      if the client swipes over the articles element the card will start to flip
-      and the velocity (adding 5 for velocity) will be added to the flip speed
-    */
-    return (this.clientY < 0) ? this.rotate+=15 : this.rotate = 0
-  }
+let list = document.querySelectorAll('li');
+let infoPage = document.querySelector('.hide');
+let container = document.querySelector('.container');
+let liButtons = document.querySelectorAll('article')
+
+let navAnimation = () => {
+  anime({
+    targets: list,
+    translateX: -(container.offsetWidth / 2) / 2,
+    delay: anime.stagger(200)
+  })
 }
 
-// var for traversing upon events
-let navbar = document.querySelector('nav');
-let selectedPage = document.querySelector('.infoContainer');
-let mobileContainer = document.querySelectorAll('.mobile-active');
+list.forEach((c, i) => {
+  c.addEventListener('click', (e) => {
+    // we will manipulate this int for the bouncing animation when the li links are clicked
 
-// events for hover in desktop mode
+    let timer = 1500;
 
-articles.nodes.map((c, i) => {
-  c.addEventListener('touchstart', (e) => {
-    articles.activeCard = i;
-    articles.flipped = false;
-  })
+    // sliding animation for the nav bar
+    navAnimation()
 
-  c.addEventListener('touchmove', (e) => {
-    articles.clientY = e.changedTouches[0].clientY - e.changedTouches[0].screenY - 200;
-    articles.clientX = e.changedTouches[0].clientX - window.innerWidth / 2;
-    articles.flipped = true
     /*
-      as the client moves up the y axis we will update the activated article node
-      with the events current position
+      we will set all articles to display none and then set clicked element to display block
+      while also resetting the timer int so the setTimeout function will run every time the
+      li links are clicked
     */
-
-    articles.nodes[i].style.transform = `translateY(${articles.clientY}px) rotateX(${articles.rotate}deg)`
-    articles.flipCard()
-  })
-
-  c.addEventListener('touchend', (e) => {
-    // as the event ends we will switch the z-index of the current and next article nodes
-
-    // created flipped key so when card is touched the switchCard method will not fire until touchmove event is activated
-    if(articles.flipped){
-       articles.switchCard(i)
-    } else {
-      // once the card is clicked and not flipped that cards modal window will display
-
-      mobileContainer[i].className = 'mobile-container'
+    liButtons.forEach((c, i) => {
+      c.style.display = 'none';
+    })
+    liButtons[i].style.display = 'block'
+    liButtons[i].className = 'box'
+    if(infoPage.className === 'stage bounce-7'){
+      infoPage.className = 'stage'
+      timer = 100
     }
-  })
 
-  c.addEventListener('animationend', (e) => {
-
-    //after animation ends resetting position
-    c.style.transform = 'translateY(0%) rotateX(0deg)'
-    c.className = 'contactCard'
-  })
-})
-
-navbar.addEventListener('click', (e) => {
-  let path = e.path[0].textContent;
- /*
- checks if the projects or about buttons are hovered over or clicked
- and reassigns the transition class
- */
-
-  if(path === 'Projects'){
-    selectedPage.childNodes[3].style.display = 'none';
-    selectedPage.childNodes[5].style.display = 'none';
-    selectedPage.childNodes[7].style.display = 'none';
-    selectedPage.childNodes[1].style.display = 'block';
-    selectedPage.childNodes[1].className = 'transition';
-  } else if(path === 'About'){
-    selectedPage.childNodes[1].style.display = 'none';
-    selectedPage.childNodes[5].style.display = 'none';
-    selectedPage.childNodes[7].style.display = 'none';
-    selectedPage.childNodes[3].style.display = 'block';
-    selectedPage.childNodes[3].className = 'transition';
-  }
-  else if(path === 'Contact'){
-    selectedPage.childNodes[1].style.display = 'none';
-    selectedPage.childNodes[3].style.display = 'none';
-    selectedPage.childNodes[7].style.display = 'none';
-    selectedPage.childNodes[5].style.display = 'block';
-    selectedPage.childNodes[5].className = 'transition';
-  }
-})
-
-// event listener to close the modal window
-mobileContainer.forEach((c, i) => {
-  c.addEventListener('touchstart', (e) => {
-    if(e.target.textContent === 'X'){
-      c.className = 'mobile-active'
-    }
+  // after a second and a half this will display the main section element
+    setTimeout(() => {
+      infoPage.className = 'stage bounce-7'
+    }, timer)
   })
 })
