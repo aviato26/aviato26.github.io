@@ -1,339 +1,379 @@
-/*
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
-*/
 
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nixie+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase');
+@import url('https://fonts.googleapis.com/css?family=Petit+Formal+Script&display=swap');
 
-html, body{
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
+    body {
+      background: white
+    }
 
-nav {
-  display: none
-}
+    .container {
+      display: none
+    }
 
-.infoContainer {
-  display: none;
-}
+    header {
+      display: none
+    }
 
-.header {
-  position: fixed;
-  width: 100%;
-  height: 10%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  color: #d3c090;
-  font-size: 1.2em;
-  font-family: 'Cormorant Unicase', serif;
-  z-index: 4;
-  background-image: url(headerDesign.svg)
-}
+    .mobile-mode {
+      display: block
+    }
 
-.logo {
-  background-image: url(logo-01.svg);
-  background-repeat: no-repeat;
-  background: contain;
-  width: 10%;
-  text-align: center;
-}
+    @import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase');
 
-.cardLogo {
-  background-image: url(logo-01.svg);
-  background-repeat: no-repeat;
-  background: contain;
-  width: 50%;
-  height: 50%;
-  margin: 37% auto;
-}
+    html, body{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
 
-h1 {
-  margin: 0;
-}
+    nav {
+      display: none
+    }
 
-.main {
-  grid-area: main;
-}
+    .infoContainer {
+      display: none;
+    }
 
-.contactCard {
-  position: absolute;
-  background: seashell;
-  font-family: 'Cormorant Unicase', serif;
-  border-radius: 30px;
-  border: 4px solid black;
-  text-align: center;
-  color: black;
-  height: 50%;
-  width: 60%;
-  box-shadow: 2px 15px 58px black;
-  top: 15%;
-  left: 20%;
-  z-index: 1
-}
+    .header {
+      position: fixed;
+      width: 100%;
+      height: 10%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      color: #d3c090;
+      font-size: 1.2em;
+      font-family: 'Cormorant Unicase', serif;
+      z-index: 4;
+      background-image: url(headerDesign.svg)
+    }
 
-.card {
-  position: absolute;
-  background: seashell;
-  font-family: 'Cormorant Unicase', serif;
-  border-radius: 30px;
-  border: 4px solid black;
-  text-align: center;
-  color: black;
-  height: 50%;
-  width: 60%;
-  box-shadow: 2px 15px 58px black;
-  top: 25%;
-  left: 20%;
-  z-index: 2
-}
+    .logo {
+      background-image: url(logo-01.svg);
+      background-repeat: no-repeat;
+      background: contain;
+      width: 10%;
+      text-align: center;
+    }
 
-.currentCard {
-  top: 35%;
-  z-index: 3
-}
+    .cardLogo {
+      background-image: url(logo-01.svg);
+      background-repeat: no-repeat;
+      background: contain;
+      width: 50%;
+      height: 50%;
+      margin: 37% auto;
+    }
 
-.flipback {
-  animation: flip 0.3s ;
-}
+    h1 {
+      margin: 0;
+    }
 
-.mobile-container div{
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  position: absolute;
-  background-color: rgba(255, 245, 238, 0.99);
-  overflow: scroll;
-  z-index: 5;
-  font-size: 1.3em
-}
+    .main {
+      grid-area: main;
+    }
 
-.mobile-container h2 {
-  font-family: 'Cormorant Unicase', serif;
-}
+    .contactCard {
+      position: absolute;
+      background: seashell;
+      font-family: 'Cormorant Unicase', serif;
+      border-radius: 30px;
+      border: 4px solid black;
+      text-align: center;
+      color: black;
+      height: 50%;
+      width: 60%;
+      box-shadow: 2px 15px 58px black;
+      top: 15%;
+      left: 20%;
+      z-index: 1
+    }
 
-.mobile-container h3 {
-  font-family: cursive;
-}
+    .card {
+      position: absolute;
+      background: seashell;
+      font-family: 'Cormorant Unicase', serif;
+      border-radius: 30px;
+      border: 4px solid black;
+      text-align: center;
+      color: black;
+      height: 50%;
+      width: 60%;
+      box-shadow: 2px 15px 58px black;
+      top: 25%;
+      left: 20%;
+      z-index: 2
+    }
 
-.mobile-active {
-  display: none
-}
+    .currentCard {
+      top: 35%;
+      z-index: 3
+    }
 
-.mobile-container div img {
-  box-shadow: 1px 6px 25px black
-}
+    .flipback {
+      animation: flip 0.3s ;
+    }
 
-.mobile-container p {
-  padding: 5%
-}
+    .mobile-container div{
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      position: absolute;
+      background-color: rgba(255, 245, 238, 0.99);
+      overflow: scroll;
+      z-index: 5;
+      font-size: 1.3em
+    }
 
-.mobile-container #rose {
-  opacity: 0.3;
-  height: 10%;
-  display: block;
-  margin: auto;
-  box-shadow: none
-}
+    .mobile-container h2 {
+      font-family: 'Cormorant Unicase', serif;
+    }
 
-.cardInnerBorder {
-  width: 60%;
-  height: 60%;
-  margin: auto;
-  border: 2px solid green;
-  background: white
-}
+    .mobile-container h3 {
+      font-family: cursive;
+    }
 
-img {
-  width: 70%;
-  height: 30%
-}
+    .mobile-active {
+      display: none
+    }
 
-.close {
-  font-size: 2em;
-  position: fixed;
-  top: 3%;
-  right: 15%
-}
+    .mobile-container div img {
+      box-shadow: 1px 6px 25px black
+    }
 
-@keyframes flip {
-  --posY: 0;
-  --rotX: 0;
-  from {transform: translateY(var(--posY)px) rotateX(var(--rotX)deg); z-index: 3}
-  to {transform: translateY(-19%) rotateX(0deg); z-index: 1}
-}
+    .mobile-container p {
+      padding: 5%
+    }
 
-/*
-  adding margin for the header to center logo go larger screens
-*/
+    .mobile-container #rose {
+      opacity: 0.3;
+      height: 10%;
+      display: block;
+      margin: auto;
+      box-shadow: none
+    }
 
-@media only screen and (min-width: 500px){
+    .cardInnerBorder {
+      width: 60%;
+      height: 60%;
+      margin: auto;
+      border: 2px solid green;
+      background: white
+    }
 
-}
-/*
-  desktop layout
-*/
+    img {
+      width: 70%;
+      height: 30%
+    }
+
+    .close {
+      font-size: 2em;
+      position: fixed;
+      top: 3%;
+      right: 15%
+    }
+
+    @keyframes flip {
+      --posY: 0;
+      --rotX: 0;
+      from {transform: translateY(var(--posY)px) rotateX(var(--rotX)deg); z-index: 3}
+      to {transform: translateY(-19%) rotateX(0deg); z-index: 1}
+    }
+
+    /*
+      adding margin for the header to center logo go larger screens
+    */
+
 
 @media only screen and (min-width: 769px){
 
-  .grid-container {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-areas:
-    'header header header header header header'
-    'main main main main main main';
-    grid-template-rows: 20% 80%;
+  body, html {
     margin: 0;
+    background-color: #00004d;
+    height: 100vh;
+    width: 100%
   }
 
-  .header {
-    position: static;
-    width: 100%;
-    height: 100%;
-    grid-area: header;
-    background-color: #350D1B;
-    box-shadow: 1px 5px 20px black;
-    font-size: 2.3em;
-    z-index: 0;
+  header {
+    text-align: center;
+    display: block
+  }
+
+  .textContainer {
+    display: inline-block
   }
 
   h1 {
-    margin: auto 1%
+    font-family: 'Nixie One', cursive;
+    color: white;
+    font-size: 2.5em
   }
 
-  .logo {
-    width: 10%;
+  p {
+    line-height: 1.6
   }
 
-  .main {
-    display: grid;
-    grid-template-columns: 25% auto
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 20%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 0
   }
 
-  .card {
-    display: none
-  }
-
-  nav {
-    display: block;
-    box-shadow: 10px 20px 15px black;
-    border-right: 2px solid black;
+  li {
     text-align: center;
-    background: #350D1B;
-    z-index: 2;
-    position: relative;
-    background-image: url(navbarbackground.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    margin: 10% auto;
+    width: 100%;
+    height: 20%;
+    border: 3px solid white;
+    border-radius: 30px;
   }
 
-  nav p {
-    color: black;
-    width: 90%;
-    margin: 20% auto;
-    font-size: 2em;
-    border: 2px solid black;
-    position: relative;
-    z-index: 2;
-    border-radius: 90px;
-    background: white;
-    box-shadow: 1px 1px 8px black;
-    transition: 1s;
-    background-image: linear-gradient(to left, black -32%, white 22%);
-  }
-
-  /*
-    using transition for the animation way more efficient than with keyframes
-  */
-
-  nav p:hover {
-    box-shadow: 10px 10px 20px black;
+  li:hover {
+    animation: fonts .3s ease;
+    animation-duration: infinite;
+    animation-fill-mode: forwards;
     cursor: pointer;
   }
 
-  .infoContainer {
-    font-size: 1.5em;
-    display: block;
-    text-align: center;
-    overflow: scroll;
-    padding: 0 8%;
-    background-image: url('floralbackground.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .infoContainer h2 {
+  .button {
+    width: 100%;
+    height: 100%;
     font-size: 2em;
-    font-family: 'Cormorant Unicase', serif;
-    text-decoration: underline;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #00004d;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px white;
   }
 
-  .infoContainer h3 {
-    font-size: 1.4em;
-    font-family: 'Comic Sans MS', serif;
+  .button:hover {background-color: #00004d}
+
+  .button:active {
+    background-color: #00004d;
+    box-shadow: 0 5px black;
+    transform: translateY(6px);
   }
 
-  .infoContainer img {
+  @keyframes colorChanger {
+    from {box-shadow: }
+    to {font-size: 3em}
+  }
+
+  @keyframes fonts {
+    from {box-shadow: 0}
+    to {box-shadow: 0px 0px 10px white}
+  }
+
+  img {
     box-shadow: 0 6px 25px black;
     width: 40%;
   }
 
-  .projects, .about, .contact, .contactCard{
-    display: none;
-    opacity: 0;
+  h3 {
+    font-size: 1.4em;
+    font-family: 'Comic Sans MS', serif;
   }
 
-  .transition {
-    display: block;
-    opacity: 1;
-    animation: fadein 1s forwards;
-    overflow: initial;
-    height: 100vh;
+  .typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap;; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .10em; /* Adjust as needed */
+    animation:
+      typing 3.5s steps(50, end),
+      blink-caret .75s step-end infinite;
   }
 
-  .transition #rose {
-    opacity: 0.3;
-    height: 10%;
-    display: block;
-    margin: auto;
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
   }
 
-  #rose {
-    box-shadow: none;
-    display: none;
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
   }
 
-  img {
-    width: 30%;
-  }
-
-  input, textarea, button{
-    border: 3px solid black;
-    display: block;
-    margin: 5% auto;
-  }
-
-  form button {
-    width: 10%;
-    height: 30px
-  }
-
-  #mobile-container {
+  .hide {
     display: none
   }
 
-  @keyframes fadein {
-    from {opacity: 0};
-    to {opacity: 1}
+  .container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
   }
 
-  @keyframes fadeout {
-    from {opacity: 1};
-    to {opacity: 0}
+  h2 {
+    font-size: 2em;
+    font-family: 'Cormorant Unicase', serif;
+    border-radius: 14px;
+    border-bottom: 3px solid black;
+    width: 35%;
+    margin: 5% auto
+  }
+
+  h3 {
+    font-family: 'Petit Formal Script', cursive;
+  }
+
+  .stage {
+      height: 75%;
+      width: 50%;
+      position: absolute;
+      background-color: white;
+      top: 25%;
+      left: 45%;
+      z-index: 1;
+      font-size: 1.5em;
+      display: block;
+      text-align: center;
+      overflow: auto;
+      align-self: flex-end;
+      animation-duration: 1.5s;
+      animation-iteration-count: 1;
+      border-radius: 1%
+    }
+
+    .box {
+        background-color: white;
+        height: 100%;
+        margin: 0 auto 0 auto;
+        transform-origin: bottom;
+        width: 100%;
+    }
+    .bounce-7 {
+        animation-name: bounce-7;
+        animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+    }
+    @keyframes bounce-7 {
+        0%   { transform: scale(1,1)      translateY(0); }
+        10%  { transform: scale(1.1,.9)   translateY(0); }
+        30%  { transform: scale(.9,1.1)   translateY(-100px); }
+        50%  { transform: scale(1.05,.95) translateY(0); }
+        57%  { transform: scale(1,1)      translateY(-7px); }
+        64%  { transform: scale(1,1)      translateY(0); }
+        100% { transform: scale(1,1)      translateY(0); }
+    }
+
+  .mobile-mode {
+    display: none
   }
 
 }
