@@ -65,7 +65,8 @@ articles.nodes.map((c, i) => {
     } else {
       // once the card is clicked and not flipped that cards modal window will display
 
-      mobileContainer[i].className = 'mobile-container'
+      // adding a slight delay after click, when card was click if finger was over a link it would automatically active link
+      setTimeout(() => mobileContainer[i].className = 'mobile-container', 50)
     }
   })
 
